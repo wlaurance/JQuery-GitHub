@@ -1,5 +1,8 @@
 //github.js
 
+//Thanks to Hector Virgin
+//http://www.virgentech.com/blog/2009/10/building-object-oriented-jquery-plugin.html
+
 //Wrap code in anonymous function
 (function($){
     var GitHubPortal = function(element)
@@ -8,11 +11,6 @@
         var obj = this;
         var baseURL = 'https://api.github.com';
         
-        //public methods
-        this.publicMethod = function()
-        {
-            console.log('publicMethod() called!');
-        };
 
         this.getRepos = function(userId)
         {
