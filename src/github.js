@@ -20,8 +20,7 @@
                         dataType: 'jsonp',
                         cache: true,
                         success: function(repos){
-                        myRepos = repos;
-                        processRepos(myRepos);
+                        processRepos(repos);
                     }
                 });
                                
@@ -29,8 +28,8 @@
         
         var processRepos = function(repos)
         {
-            $.each(myRepos, function(key,value){
-                    $.each(myRepos[key], function(k,v){
+            $.each(repos, function(key,value){
+                    $.each(repos[key], function(k,v){
                             if (v["name"] != undefined)
                                 elem.append("<li><a href=\""+ v["html_url"] + "\">"  + v["name"] + "</a></li>"); 
                         });
