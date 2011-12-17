@@ -39,8 +39,12 @@
         {
             $.each(repos, function(key,value){
                     $.each(repos[key], function(k,v){
-                            if (v["name"] != undefined)
-                                elem.append("<li><a href=\""+ v["html_url"] + "\">"  + v["name"] + "</a></li>"); 
+                            if (v["name"] != undefined){
+                                if(v["description"] == null)
+                                    v["description"] = "No description";
+                                elem.append("<li><a href=\""+ v["html_url"] + "\"+ title=\""+ v["description"] + "\" target=\"__blank\">"  + v["name"] + "</a></li>"); 
+                            }
+                                
                         });
                 });
         };
