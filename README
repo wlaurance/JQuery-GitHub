@@ -1,0 +1,13 @@
+JQuery-Github is a simple script that allows easy access to your github information for a 
+website.
+
+Simple usage :
+
+In haml, this is all that is needed to list your repos. 
+
+%h2= "Github Repos"
+%ul.githubportal
+  :javascript
+    $('ul.githubportal').gitHubPortal();
+    var gitHubPortal = $('ul.githubportal').data('gitHubPortal');
+    gitHubPortal.getRepos("wlaurance")
