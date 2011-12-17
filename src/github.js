@@ -14,7 +14,7 @@
 
         this.getRepos = function(userId)
         {
-            
+            hyperCache();
             $.ajax({
                     url: baseURL+"/users/"+userId+"/repos",
                         dataType: 'jsonp',
