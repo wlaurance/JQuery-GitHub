@@ -10,11 +10,12 @@
         var elem = $(element);
         var obj = this;
         var baseURL = 'https://api.github.com';
-        
+        elem.hyperCache();
+        var hyperCache = elem.data('hyperCache');
 
         this.getRepos = function(userId)
         {
-            hyperCache();
+
             $.ajax({
                     url: baseURL+"/users/"+userId+"/repos",
                         dataType: 'jsonp',
