@@ -15,16 +15,24 @@
 
         this.getRepos = function(userId)
         {
+            if (hyperCache.get("repos") == null)
+                {
 
-            $.ajax({
-                    url: baseURL+"/users/"+userId+"/repos",
-                        dataType: 'jsonp',
-                        cache: true,
-                        success: function(repos){
-                        processRepos(repos);
-                    }
-                });
-                               
+                    $.ajax({
+                            url: baseURL+"/users/"+userId+"/repos",
+                            dataType: 'jsonp',
+                            cache: true,
+                            success: function(repos){
+                                processRepos(repos);
+                                hyperCache.store("repos", repos, 300);
+                            }
+                        });
+                }
+            else 
+                {
+                    processRepos(JSON.parse(hyperCache.get("repos")));
+                }
+            
         }
         
         var processRepos = function(repos)
